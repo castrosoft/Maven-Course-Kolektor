@@ -25,6 +25,20 @@ mvn -Dtest=<ClaseDeTest>
 //Es como hacer mvn install pero con un jar que saque de otro lado
 mvn install:install-file -DgeneratePom=true -DgroupId=prueba -DartifactId=prueba -Dversion=1.0.0-SNAPSHOT -Dfile=my-app-1.0-SNAPSHOT.jar -Dpackaging=jar
 
+//Agrego carpetas resources en src y en test con application.properties
+Lo de test/resources NO se empaqueta en el jar, cuando se ejecuta el plugin package
+jar -tf my-app-1.0-SNAPSHOT.jar ---> Para ver lo que contiene el jar
+
+//Concepto de Filtrado
+Es la posibilidad de definir el valor de un recurso sea seteado en build time
+${propertyName}
+
+Hay varios lugares donde se puede poner los valores a setear(setting, pom, profiles, etc)
+Independiza valores de la app, porque son valores del ambiente (user & pass del ambiente es del ambiente, 
+el endpoint del servicio que voy a consumir depende del ambiente). Entonces no se puede estar en el codigo hardcodeado
+
+
+
 //Ejecuto esto luego de agregar las resources en el pom.xml
 mvn clean -DuserValue=Pedro -DpassValue=Castro package
 
