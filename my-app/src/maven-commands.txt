@@ -1,0 +1,30 @@
+//generacion del proyecto
+mvn archetype:generate -DgroupId=ar.gob.rentascba -DartifactId=my-app -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+
+//genera los .class
+mvn compile
+
+//compila y ejecuta los tests
+mvn test
+
+//ejecuta los tests y genera el artifact con el packaging type (jar por default, war, ear)
+mvn package
+
+//genera el artifact con el packaging type (jar por default, war, ear) y lo instala en repo local
+//Y ahi lo puede usar otro proyecto diferente
+mvn install
+
+//skipea test (SOLO En caso de emergencia)
+mvn install -DskipTests=true        //Compila los tests pero NO los ejecuta
+mvn install -Dmaven.test.skip=true //NO compila los tests y NO los ejecuta
+
+//Para ejecutar un test en particular
+mvn -Dtest=<ClaseDeTest>
+
+//Para instalar un jar externo (libreria) en el repo local
+//Es como hacer mvn install pero con un jar que saque de otro lado
+mvn install:install-file -DgeneratePom=true -DgroupId=prueba -DartifactId=prueba -Dversion=1.0.0-SNAPSHOT -Dfile=my-app-1.0-SNAPSHOT.jar -Dpackaging=jar
+
+//Ejecuto esto luego de agregar las resources en el pom.xml
+mvn clean -DuserValue=Pedro -DpassValue=Castro package
+
