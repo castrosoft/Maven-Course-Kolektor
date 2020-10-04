@@ -28,6 +28,23 @@
   </dependencies>
 
   <build>
+
+    <!--Agrego esta tag resources. SI se empaqueta-->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+
+    <!--Agrego esta tag resources para test. NO se empaqueta-->
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering> <!-- es para reemplazar variables (placeholders) con valores obtenidos de ubicaciones puntuales-->
+      </testResource>
+    </testResources>
+
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
