@@ -41,7 +41,7 @@
     <testResources>
       <testResource>
         <directory>src/test/resources</directory>
-        <filtering>true</filtering> <!-- es para reemplazar variables (placeholders) con valores obtenidos de ubicaciones puntuales-->
+        <filtering>false</filtering> <!-- es para reemplazar variables (placeholders) con valores obtenidos de ubicaciones puntuales-->
       </testResource>
     </testResources>
 
